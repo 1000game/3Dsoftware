@@ -34,12 +34,12 @@ function main() {
     loader.setDRACOLoader(dracoLoader);
     loader.load(
         // gltf-pipeline -i model.glb -o model.gltf -d
-        './gltf/model.gltf',
+        './gltf/model1.gltf',
         function (gltf) {
-            model = gltf.scene;
-            model.castShadow = true
-            model.scale.set(MODEL_SCALE, MODEL_SCALE, MODEL_SCALE)
-            model.traverse(function (node) {
+            model1 = gltf.scene;
+            model1.castShadow = true
+            model1.scale.set(MODEL_SCALE, MODEL_SCALE, MODEL_SCALE)
+            model1.traverse(function (node) {
                 if (node instanceof THREE.Mesh) {
                     node.castShadow = true;
                     node.receiveShadow = true;
@@ -61,7 +61,7 @@ function main() {
 
     function render() {
         // stats.update()
-        update_controls(model, myscrollbar);
+        update_controls(model1, myscrollbar);
         var delta = clock.getDelta();
         if (mixer) mixer.update(delta);
         renderer.render(scene, camera);
